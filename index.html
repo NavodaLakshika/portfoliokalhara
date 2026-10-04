@@ -31,6 +31,9 @@
       margin: 0;
       padding: 0;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Space Grotesk', sans-serif;
       background-color: #f3f4f7;
@@ -158,6 +161,57 @@
       opacity: 0;
     }
 
+    /* Hero Actions: Download CV & View Work */
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 36px;
+      animation: subTextReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+      opacity: 0;
+    }
+    .btn-hero-cv {
+      background: #0d0d0d;
+      color: #ffffff;
+      padding: 13px 28px;
+      border-radius: 30px;
+      font-size: 0.98rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      border: 2px solid #0d0d0d;
+    }
+    .btn-hero-cv:hover {
+      background: #0057ff;
+      border-color: #0057ff;
+      color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 87, 255, 0.35);
+    }
+    .btn-hero-secondary {
+      background: #eef2f7;
+      color: #111111;
+      padding: 13px 24px;
+      border-radius: 30px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: 2px solid transparent;
+    }
+    .btn-hero-secondary:hover {
+      background: #e1e7f0;
+      transform: translateY(-2px);
+    }
+
     /* =========================================================
        2. ABOUT, EDUCATION, SKILLS & EXPERIENCE
        ========================================================= */
@@ -217,6 +271,56 @@
     .black-badge:hover {
       background: #252525;
       transform: translateY(-2px);
+    }
+
+    /* CV Download Banner in About Section */
+    .cv-download-banner {
+      background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+      color: #ffffff;
+      padding: 22px 24px;
+      border-radius: 12px;
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .cv-download-info h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+    }
+    .cv-download-info p {
+      font-size: 0.84rem;
+      color: #9ca3af;
+      margin: 0;
+      line-height: 1.5;
+    }
+    .btn-cv-download {
+      background: #0057ff;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .btn-cv-download:hover {
+      background: #0046d4;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 87, 255, 0.4);
+      color: #ffffff;
     }
 
     /* =========================================================
@@ -415,7 +519,19 @@
       border-radius: 50%;
       overflow: hidden;
       flex-shrink: 0;
-      background: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #ffffff;
+      background: #333333;
+    }
+    .comment-user-img.user-pa {
+      background: linear-gradient(135deg, #0057ff, #00b4d8);
+    }
+    .comment-user-img.user-fk {
+      background: linear-gradient(135deg, #7928ca, #ff0080);
     }
     .comment-body h5 { font-size: 0.92rem; font-weight: 700; }
     .comment-body h5 span { font-size: 0.78rem; color: #888; font-weight: 400; margin-left: 6px; }
@@ -468,22 +584,64 @@
       width: 100%;
       background: #0057ff;
       color: #fff;
-      padding: 9px 0;
+      padding: 10px 0;
       border-radius: 20px;
       font-weight: 600;
+      font-size: 0.88rem;
       border: none;
       cursor: pointer;
       margin-bottom: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-sidebar-follow:hover {
+      background: #0046d4;
+      transform: translateY(-2px);
     }
     .btn-sidebar-hire {
       width: 100%;
       background: #f0f4ff;
       color: #0057ff;
-      padding: 8px 0;
+      padding: 10px 0;
       border-radius: 20px;
       font-weight: 600;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       border: none;
       cursor: pointer;
+      text-decoration: none;
+      margin-bottom: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-sidebar-hire:hover {
+      background: #e0ecff;
+      transform: translateY(-2px);
+    }
+    .btn-sidebar-cv {
+      width: 100%;
+      background: #0d0d0d;
+      color: #ffffff;
+      padding: 10px 0;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .btn-sidebar-cv:hover {
+      background: #0057ff;
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 87, 255, 0.35);
     }
 
     .stats-card h5 { font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; }
@@ -531,6 +689,25 @@
     }
     .footer-info h2 { font-family: 'Space Grotesk', 'Syne', sans-serif; font-size: 2rem; font-weight: 700; }
     .footer-info p { font-size: 0.9rem; color: #444; margin-top: 4px; }
+    .footer-cv-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 8px 18px;
+      background: #0d0d0d;
+      color: #fff;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .footer-cv-btn:hover {
+      background: #0057ff;
+      color: #fff;
+      transform: translateY(-2px);
+    }
     .social-links-flex { display: flex; gap: 12px; margin-top: 15px; }
     .social-icon-btn {
       width: 40px;
@@ -552,6 +729,23 @@
       .hero-title { font-size: 4.2rem; letter-spacing: -1.5px; }
       .hero-sub { font-size: 1.3rem; margin-top: 12px; }
       .big-branding-text { font-size: 2.8rem; }
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+      }
+      .btn-hero-cv, .btn-hero-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+      .cv-download-banner {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+      .btn-cv-download {
+        justify-content: center;
+      }
       .grid-2col, 
       .project-meta-grid, 
       .branding-grid-layout, 
@@ -590,6 +784,16 @@
           <span>Kasun Kalhara</span>
           <span>2026</span>
         </div>
+        <div class="hero-actions">
+          <a href="Kasun_Kalhara_CV.pdf" download="Kasun_Kalhara_CV.pdf" target="_blank" class="btn-hero-cv">
+            <i class="fa-solid fa-file-arrow-down"></i>
+            <span>Download CV</span>
+          </a>
+          <a href="#about" class="btn-hero-secondary">
+            <i class="fa-solid fa-arrow-down"></i>
+            <span>Explore Work</span>
+          </a>
+        </div>
       </div>
     </header>
 
@@ -597,7 +801,7 @@
     <!-- =========================================================
          2. ABOUT, EDUCATION, COURSES, SKILLS & EXP
          ========================================================= -->
-    <section class="grid-2col relative-z section-space">
+    <section id="about" class="grid-2col relative-z section-space">
       <!-- Left Column -->
       <div>
         <h2 class="sec-heading">About Me</h2>
@@ -633,6 +837,17 @@
           <div class="black-badge"><i class="fa-brands fa-react"></i> React</div>
           <div class="black-badge"><i class="fa-solid fa-code"></i> Next.js</div>
           <div class="black-badge"><i class="fa-solid fa-mobile-screen"></i> Flutter</div>
+        </div>
+
+        <!-- 📄 CURRICULUM VITAE DOWNLOAD BANNER -->
+        <div class="cv-download-banner">
+          <div class="cv-download-info">
+            <h4><i class="fa-solid fa-file-pdf" style="margin-right: 8px; color: #38bdf8;"></i> Curriculum Vitae</h4>
+            <p>Download my comprehensive CV with complete credentials, design portfolio details & experience.</p>
+          </div>
+          <a href="Kasun_Kalhara_CV.pdf" download="Kasun_Kalhara_CV.pdf" target="_blank" class="btn-cv-download">
+            <i class="fa-solid fa-download"></i> Download CV
+          </a>
         </div>
       </div>
 
@@ -702,21 +917,21 @@
 
       <div class="branding-grid-layout">
         <div class="branding-card-box">
-          <img src="branding_sample1.jpg" alt="Rawnaq Main Brand" onerror="this.src='https://via.placeholder.com/600x400/e16b3f/ffffff?text=Main+Branding+Image'">
+          <img src="branding_sample1.jpg" alt="Rawnaq Main Brand" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23e16b3f\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'18\' text-anchor=\'middle\' dy=\'.3em\'>Rawnaq Main Brand</text></svg>';">
         </div>
         <div class="branding-card-box">
-          <img src="branding_sample2.jpg" alt="Packaging Mockup" onerror="this.src='https://via.placeholder.com/400x400/5a1914/ffffff?text=Packaging+Mockup'">
+          <img src="branding_sample2.jpg" alt="Packaging Mockup" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%235a1914\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'16\' text-anchor=\'middle\' dy=\'.3em\'>Packaging Mockup</text></svg>';">
         </div>
         <div class="branding-card-box sub-grid">
           <div class="sub-item-box">
-            <img src="branding_sample3.jpg" alt="Business Cards" onerror="this.src='https://via.placeholder.com/300x200/73221b/ffffff?text=Business+Cards'">
+            <img src="branding_sample3.jpg" alt="Business Cards" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\'><rect width=\'100%\' height=\'100%\' fill=\'%2373221b\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'14\' text-anchor=\'middle\' dy=\'.3em\'>Business Cards</text></svg>';">
           </div>
           <div class="sub-item-box">
-            <img src="branding_sample4.jpg" alt="Color Palette" onerror="this.src='https://via.placeholder.com/300x200/73221b/ffffff?text=Color+Palette'">
+            <img src="branding_sample4.jpg" alt="Color Palette" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'200\'><rect width=\'100%\' height=\'100%\' fill=\'%2373221b\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'14\' text-anchor=\'middle\' dy=\'.3em\'>Color Palette</text></svg>';">
           </div>
         </div>
         <div class="branding-card-box">
-          <img src="branding_sample5.jpg" alt="Apparel Design" onerror="this.src='https://via.placeholder.com/600x300/a34827/ffffff?text=Apparel+%26+T-Shirt'">
+          <img src="branding_sample5.jpg" alt="Apparel Design" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'300\'><rect width=\'100%\' height=\'100%\' fill=\'%23a34827\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'16\' text-anchor=\'middle\' dy=\'.3em\'>Apparel Design</text></svg>';">
         </div>
       </div>
     </article>
@@ -753,13 +968,13 @@
 
       <div class="mobile-mockup-flex">
         <div class="phone-frame">
-          <img src="mobile_screen1.jpg" alt="Mobile UI Screen 1" onerror="this.src='https://via.placeholder.com/300x600/2a2228/ffffff?text=UI+Screen+01'">
+          <img src="mobile_screen1.jpg" alt="Mobile UI Screen 1" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'600\'><rect width=\'100%\' height=\'100%\' fill=\'%232a2228\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'16\' text-anchor=\'middle\' dy=\'.3em\'>UI Screen 01</text></svg>';">
         </div>
         <div class="phone-frame">
-          <img src="mobile_screen2.jpg" alt="Mobile UI Screen 2" onerror="this.src='https://via.placeholder.com/300x600/4a3c36/ffffff?text=UI+Screen+02'">
+          <img src="mobile_screen2.jpg" alt="Mobile UI Screen 2" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'600\'><rect width=\'100%\' height=\'100%\' fill=\'%234a3c36\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'16\' text-anchor=\'middle\' dy=\'.3em\'>UI Screen 02</text></svg>';">
         </div>
         <div class="phone-frame">
-          <img src="mobile_screen3.jpg" alt="Mobile UI Screen 3" onerror="this.src='https://via.placeholder.com/300x600/313e47/ffffff?text=UI+Screen+03'">
+          <img src="mobile_screen3.jpg" alt="Mobile UI Screen 3" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'600\'><rect width=\'100%\' height=\'100%\' fill=\'%23313e47\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'16\' text-anchor=\'middle\' dy=\'.3em\'>UI Screen 03</text></svg>';">
         </div>
       </div>
     </article>
@@ -791,13 +1006,13 @@
 
       <div class="social-posts-grid">
         <div class="post-card-box">
-          <img src="social_post1.jpg" alt="Social Post 1" onerror="this.src='https://via.placeholder.com/400x400/333333/ffffff?text=Social+Post+01'">
+          <img src="social_post1.jpg" alt="Social Post 1" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23333333\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'16\' text-anchor=\'middle\' dy=\'.3em\'>Social Post 01</text></svg>';">
         </div>
         <div class="post-card-box">
-          <img src="social_post2.jpg" alt="Social Post 2" onerror="this.src='https://via.placeholder.com/400x400/444444/ffffff?text=Social+Post+02'">
+          <img src="social_post2.jpg" alt="Social Post 2" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23444444\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'16\' text-anchor=\'middle\' dy=\'.3em\'>Social Post 02</text></svg>';">
         </div>
         <div class="post-card-box">
-          <img src="social_post3.jpg" alt="Social Post 3" onerror="this.src='https://via.placeholder.com/400x400/555555/ffffff?text=Social+Post+03'">
+          <img src="social_post3.jpg" alt="Social Post 3" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23555555\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'16\' text-anchor=\'middle\' dy=\'.3em\'>Social Post 03</text></svg>';">
         </div>
       </div>
     </article>
@@ -810,18 +1025,18 @@
       <h2 class="banner-showcase-title">Promotional Banner Showcase</h2>
       
       <div class="main-banner-container">
-        <img src="banner_main.jpg" alt="Main Offer Banner" onerror="this.src='https://via.placeholder.com/1200x400/e86100/ffffff?text=Upload+Large+Promotional+Banner+Here+(1200x400)'">
+        <img src="banner_main.jpg" alt="Main Offer Banner" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'400\'><rect width=\'100%\' height=\'100%\' fill=\'%23e86100\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'22\' text-anchor=\'middle\' dy=\'.3em\'>Promotional Banner</text></svg>';">
       </div>
 
       <div class="banner-grid-3col">
         <div class="small-banner-box">
-          <img src="banner_sub1.jpg" alt="Promo Banner 1" onerror="this.src='https://via.placeholder.com/400x300/f37021/ffffff?text=Ad+Banner+01'">
+          <img src="banner_sub1.jpg" alt="Promo Banner 1" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'100%\' height=\'100%\' fill=\'%23f37021\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'16\' text-anchor=\'middle\' dy=\'.3em\'>Ad Banner 01</text></svg>';">
         </div>
         <div class="small-banner-box">
-          <img src="banner_sub2.jpg" alt="Promo Banner 2" onerror="this.src='https://via.placeholder.com/400x300/d64800/ffffff?text=Ad+Banner+02'">
+          <img src="banner_sub2.jpg" alt="Promo Banner 2" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'100%\' height=\'100%\' fill=\'%23d64800\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'16\' text-anchor=\'middle\' dy=\'.3em\'>Ad Banner 02</text></svg>';">
         </div>
         <div class="small-banner-box">
-          <img src="banner_sub3.jpg" alt="Promo Banner 3" onerror="this.src='https://via.placeholder.com/400x300/ff8400/ffffff?text=Ad+Banner+03'">
+          <img src="banner_sub3.jpg" alt="Promo Banner 3" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'100%\' height=\'100%\' fill=\'%23ff8400\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'16\' text-anchor=\'middle\' dy=\'.3em\'>Ad Banner 03</text></svg>';">
         </div>
       </div>
     </section>
@@ -838,7 +1053,7 @@
           <h3>Sign in to join the conversation</h3>
           <p>Add your feedback for Kasun Kalhara's project by signing in or signing up.</p>
           <div class="social-auth-buttons">
-            <button class="btn-blue-signin">Sign In</button>
+            <button type="button" class="btn-blue-signin" onclick="alert('Sign In is currently in preview.')">Sign In</button>
             <span style="font-size:0.85rem; color:#777;">or</span>
             <div class="social-icon-circle"><i class="fa-brands fa-apple"></i></div>
             <div class="social-icon-circle"><i class="fa-brands fa-facebook-f" style="color:#1877f2;"></i></div>
@@ -849,9 +1064,7 @@
         <!-- Comments List -->
         <div class="behance-comments-list" id="behanceCommentsList">
           <div class="behance-comment-item">
-            <div class="comment-user-img">
-              <img src="client1.jpg" alt="Priscilla" onerror="this.src='https://via.placeholder.com/42/333/fff?text=PA'">
-            </div>
+            <div class="comment-user-img user-pa">PA</div>
             <div class="comment-body">
               <h5>Priscilla Adeleke <span>• Sep 17, 2026</span></h5>
               <p>Nice work!</p>
@@ -859,9 +1072,7 @@
           </div>
 
           <div class="behance-comment-item">
-            <div class="comment-user-img">
-              <img src="client2.jpg" alt="Faisal Khan" onerror="this.src='https://via.placeholder.com/42/0057ff/fff?text=FK'">
-            </div>
+            <div class="comment-user-img user-fk">FK</div>
             <div class="comment-body">
               <h5>Faisal Khan <span>• Jul 25, 2026</span></h5>
               <p>good ❤️</p>
@@ -870,7 +1081,7 @@
         </div>
 
         <!-- Interactive Form -->
-        <form class="add-comment-box" id="newCommentForm">
+        <form class="add-comment-box" id="newCommentForm" onsubmit="event.preventDefault();">
           <input type="text" id="inputName" placeholder="Your Name" required>
           <textarea id="inputComment" rows="2" placeholder="Write a comment..." required></textarea>
           <button type="submit" class="btn-blue-signin">Post Comment</button>
@@ -883,12 +1094,13 @@
         <div class="sidebar-card owner-card-top">
           <div class="owner-label">OWNER</div>
           <div class="owner-avatar-container">
-            <img src="myone.jpg" alt="Kasun Kalhara" onerror="this.src='https://via.placeholder.com/75/111/fff?text=Kasun'">
+            <img src="myone.jpg" alt="Kasun Kalhara" onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'75\' height=\'75\'><rect width=\'100%\' height=\'100%\' fill=\'%23111111\'/><text x=\'50%\' y=\'50%\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'14\' text-anchor=\'middle\' dy=\'.3em\'>KK</text></svg>';">
           </div>
           <h4>Kasun Kalhara</h4>
           <p><i class="fa-solid fa-location-dot"></i> Godakawela, Rathnapura, Sri Lanka</p>
-          <button class="btn-sidebar-follow" onclick="alert('Thanks for following Kasun!')"><i class="fa-solid fa-plus"></i> Follow</button>
-          <a href="mailto:it.weerasooriya@gmail.com" style="display:block;"><button class="btn-sidebar-hire"><i class="fa-solid fa-envelope"></i> Hire</button></a>
+          <button type="button" class="btn-sidebar-follow" onclick="alert('Thanks for following Kasun!')"><i class="fa-solid fa-plus"></i> Follow</button>
+          <a href="mailto:it.weerasooriya@gmail.com" class="btn-sidebar-hire"><i class="fa-solid fa-envelope"></i> Hire</a>
+          <a href="Kasun_Kalhara_CV.pdf" download="Kasun_Kalhara_CV.pdf" target="_blank" class="btn-sidebar-cv"><i class="fa-solid fa-file-pdf"></i> Download CV</a>
         </div>
 
         <div class="sidebar-card stats-card">
@@ -929,13 +1141,19 @@
         <p style="margin-top: 6px;">📍 Godakawela, Rathnapura, Sri Lanka</p>
         <p>📞 <strong>Phone:</strong> 077 5956870 &nbsp;|&nbsp; ✉️ <strong>Email:</strong> it.weerasooriya@gmail.com</p>
 
+        <div style="margin-top: 14px;">
+          <a href="Kasun_Kalhara_CV.pdf" download="Kasun_Kalhara_CV.pdf" target="_blank" class="footer-cv-btn">
+            <i class="fa-solid fa-file-pdf"></i> Download CV (PDF)
+          </a>
+        </div>
+
         <div class="social-links-flex">
-          <a href="https://linkedin.com" target="_blank" class="social-icon-btn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="https://behance.net" target="_blank" class="social-icon-btn"><i class="fa-brands fa-behance"></i></a>
-          <a href="https://github.com" target="_blank" class="social-icon-btn"><i class="fa-brands fa-github"></i></a>
-          <a href="https://facebook.com" target="_blank" class="social-icon-btn"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://instagram.com" target="_blank" class="social-icon-btn"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://wa.me/94775956870" target="_blank" class="social-icon-btn"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://linkedin.com" target="_blank" class="social-icon-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="https://behance.net" target="_blank" class="social-icon-btn" title="Behance"><i class="fa-brands fa-behance"></i></a>
+          <a href="https://github.com" target="_blank" class="social-icon-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://facebook.com" target="_blank" class="social-icon-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" class="social-icon-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/94775956870" target="_blank" class="social-icon-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
       </div>
 
@@ -963,7 +1181,7 @@
         const newCommentItem = document.createElement('div');
         newCommentItem.className = 'behance-comment-item';
         newCommentItem.innerHTML = `
-          <div class="comment-user-img" style="background:#111; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:0.85rem;">
+          <div class="comment-user-img" style="background:#111; color:#fff;">
             ${initials}
           </div>
           <div class="comment-body">
@@ -977,6 +1195,7 @@
         nameInput.value = '';
         commentInput.value = '';
       }
+      return false;
     });
   </script>
 </body>

@@ -1,0 +1,10 @@
+{
+  "liveServer.settings.ignoreFiles": [
+    ".vscode/**",
+    ".git/**",
+    "**/*.log",
+    "**/*.tmp"
+  ],
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.wait": 500
+}
